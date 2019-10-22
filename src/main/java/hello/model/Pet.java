@@ -9,7 +9,7 @@ public class Pet{
         this.age = age;
     }
     @Id
-    public String Id;
+    public String id;
     private String name;
     private int age;
 

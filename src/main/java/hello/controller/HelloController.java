@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ public class HelloController {
     private PetRepository repository;
 
     // get all pet
-    @RequestMapping("/pet")
+    @RequestMapping(value = "/pet", method = RequestMethod.GET, produces = "application/json")
     public List<Pet> GetPet() {
         for (Pet pet : repository.findAll()) {
             System.out.println(pet);
@@ -43,14 +42,15 @@ public class HelloController {
         return pets;
     }
 
-    @RequestMapping("pet/{petId}")
+
+    @RequestMapping(value = "pet/{petId}", method = RequestMethod.GET, produces = "application/json")
     public Pet GetPetById(@PathVariable String petId) {
         return repository.findById(petId).get();
     }
 
     //post pet 
-    //@RequestMapping(value = "/pet", method = RequestMethod.POST, produces = "application/json")
-    @PostMapping("/pet")
+    @RequestMapping(value = "/pet", method = RequestMethod.POST, produces = "application/json")
+    //@PostMapping("/pet")
     public Pet PostPet(@RequestBody Pet pet) {
         return repository.save(pet);
     }
@@ -78,7 +78,7 @@ public class HelloController {
     }
 
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String index() {
         return "Hello World";
     }
