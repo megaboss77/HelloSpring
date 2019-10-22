@@ -1,0 +1,10 @@
+# spring.data.mongodb.uri=
+spring.data.mongodb.uri: mongodb+srv://boss123:lolicon77@cluster0-d37ej.mongodb.net/test?retryWrites=true&w=majority
+
+
+# spring.profiles: integration
+# spring.data.mongodb.uri: mongodb+srv://boss123:lolicon77@cluster0-d37ej.mongodb.net/test?retryWrites=true&w=majority
+# # use local or embedded mongodb at localhost:27017
+# ---
+# spring.profiles: production
+# spring.data.mongodb.uri: mongodb+srv://boss123:lolicon77@cluster0-d37ej.mongodb.net/test?retryWrites=true&w=majority
