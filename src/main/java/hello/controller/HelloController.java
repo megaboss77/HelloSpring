@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import hello.PetRepository;
+import hello.repository.*;
 import hello.model.Pet;
 
 @EnableAutoConfiguration
@@ -27,10 +27,10 @@ public class HelloController {
     // get all pet
     @RequestMapping(value = "/pet", method = RequestMethod.GET, produces = "application/json")
     public List<Pet> GetPet() {
-        for (Pet pet : repository.findAll()) {
-            System.out.println(pet);
-        }
-        // Pet a = new Pet("cat",16);
+        // for (Pet pet : repository.findAll()) {
+        //     System.out.println(pet);
+        // }
+        // // Pet a = new Pet("cat",16);
         List<Pet> pets = repository.findAll();
         return pets;
     }

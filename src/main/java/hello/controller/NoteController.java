@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import hello.NoteRepository;
 import hello.model.Note;
-
+import hello.repository.NoteRepository;
 
 @EnableAutoConfiguration
 @RestController
