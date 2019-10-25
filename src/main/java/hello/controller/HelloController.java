@@ -26,7 +26,7 @@ public class HelloController {
 
     // get all pet
     @RequestMapping(value = "/pet", method = RequestMethod.GET, produces = "application/json")
-    public List<Pet> GetPet() {
+    public List<Pet> getPet() {
         // for (Pet pet : repository.findAll()) {
         //     System.out.println(pet);
         // }
@@ -37,33 +37,33 @@ public class HelloController {
 
     // get one pet
     @RequestMapping(value = "/pet/name/{petName}", method = RequestMethod.GET, produces = "application/json")
-    public List<Pet> GetPetByName(@NotBlank @PathVariable(value = "petName") String petName) {
+    public List<Pet> getPetByName(@NotBlank @PathVariable(value = "petName") String petName) {
         List<Pet> pets = repository.findByName(petName);
         return pets;
     }
 
 
     @RequestMapping(value = "pet/{petId}", method = RequestMethod.GET, produces = "application/json")
-    public Pet GetPetById(@PathVariable String petId) {
+    public Pet getPetById(@PathVariable String petId) {
         return repository.findById(petId).get();
     }
 
     //post pet 
     @RequestMapping(value = "/pet", method = RequestMethod.POST, produces = "application/json")
     //@PostMapping("/pet")
-    public Pet PostPet(@RequestBody Pet pet) {
+    public Pet postPet(@RequestBody Pet pet) {
         return repository.save(pet);
     }
 
     @DeleteMapping("/pet/{petId}")
-    public void DeletePet(
+    public void deletePet(
         @PathVariable String petId
     ){
         repository.deleteById(petId);
     }
 
     @PutMapping("/pet/{id}")
-    public Pet PutPet(
+    public Pet putPet(
         @NotBlank
         @PathVariable String id,
         @RequestBody Pet newPet

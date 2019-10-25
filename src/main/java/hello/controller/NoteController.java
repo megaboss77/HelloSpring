@@ -1,6 +1,5 @@
 package hello.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +19,14 @@ public class NoteController {
     @Autowired
     private NoteRepository noteRepository;
 
-    @RequestMapping(value="/note", method = RequestMethod.GET, produces= "application/json")
-    public List<Note> GetNotes(){
+    @RequestMapping(value = "/note", method = RequestMethod.GET, produces = "application/json")
+    public List<Note> GetNotes() {
         List<Note> notes = noteRepository.findAll();
         return notes;
     }
 
-      
     @RequestMapping(value = "/note", method = RequestMethod.POST, produces = "application/json")
-    //@PostMapping("/pet")
+    // @PostMapping("/pet")
     public Note PostPet(@RequestBody Note note) {
         return noteRepository.save(note);
     }
