@@ -31,7 +31,7 @@
             <scope>test</scope>
         </dependency>
 
-<!-- for swagger -->
+        <!-- for swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
