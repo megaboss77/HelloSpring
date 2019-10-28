@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<gs-spring-boot>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "hello.Application",
+            "projectName": "gs-spring-boot",
+            "args": ""
+        }
+    ]
+}

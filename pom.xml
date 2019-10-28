@@ -19,7 +19,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- mongo -->
+        <!--for mongo -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -31,6 +31,7 @@
             <scope>test</scope>
         </dependency>
 
+<!-- for swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
@@ -42,7 +43,7 @@
             <version>2.7.0</version>
         </dependency>
 
-        <!-- AspectJ dependencies -->
+        <!-- AspectJ dependencies for AOP-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
