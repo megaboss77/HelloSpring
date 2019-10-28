@@ -9,28 +9,29 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
-@ComponentScan(basePackages ="hello")
+@ComponentScan(basePackages = "hello")
 @SpringBootApplication
 public class Application {
 
+    // To call the environment variable
     @Autowired
     private Environment env;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        
+
     }
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
 
-            System.out.println("app is running on the port "+env.getProperty("server.port"));
+            System.out.println("app is running on the port " + env.getProperty("server.port"));
 
             // String[] beanNames = ctx.getBeanDefinitionNames();
             // Arrays.sort(beanNames);
             // for (String beanName : beanNames) {
-            //     System.out.println(beanName);
+            // System.out.println(beanName);
             // }
 
         };
