@@ -3,12 +3,13 @@ package hello.model;
 import java.util.Objects;
 import org.springframework.data.annotation.Id;
 
-public class Pet{
+public class Pet {
     @Id
     public String id;
     private String name;
     private int age;
 
+    // HELLO
 
     public Pet() {
     }
@@ -76,12 +77,7 @@ public class Pet{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            ", age='" + getAge() + "'" +
-            "}";
+        return "{" + " id='" + getId() + "'" + ", name='" + getName() + "'" + ", age='" + getAge() + "'" + "}";
     }
-
 
 }
