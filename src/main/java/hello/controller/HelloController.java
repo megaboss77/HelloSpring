@@ -2,31 +2,33 @@ package hello.controller;
 
 import hello.model.Pet;
 import hello.repository.*;
+
+import java.net.InetAddress;
+//import java.net.InetAddress;
 import java.util.List;
 import javax.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-
-
+import org.springframework.web.servlet.ModelAndView;
 
 @EnableAutoConfiguration
 @RestController
 public class HelloController {
+    @Autowired
+    Environment environment;
 
     @Autowired
     private PetRepository repository;
 
     // get all pet
-    @RequestMapping(value = "/pet"
-    , method = RequestMethod.GET
-    , produces = "application/json")
+    @RequestMapping(value = "/pet", method = RequestMethod.GET, produces = "application/json")
     public List<Pet> getPet() {
         List<Pet> pets = repository.findAll();
         return pets;
@@ -68,7 +70,16 @@ public class HelloController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
     public String index() {
-        return "Hello World";
+        // Port
+        environment.getProperty("server.port");
+        // Local address
+        // InetAddress.getLocalHost().getHostAddress();
+        // InetAddress.getLocalHost().getHostName();
+
+        // Remote address
+        String inf = InetAddress.getLoopbackAddress().getHostAddress() + " "
+                + InetAddress.getLoopbackAddress().getHostName();
+        return InetAddress.getLoopbackAddress().getHostName() + "/swagger-ui.html";
     }
 
 }
