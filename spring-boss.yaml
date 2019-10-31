@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod                                            # 1
+metadata:
+  name: spring-boss-api3                                 # 2
+spec:                                                # 3
+  containers:
+    - image: megaboss77/springboss # 4
+      name: spring-boss-api                              # 5
+      ports:
+        - containerPort: 80                          # 6

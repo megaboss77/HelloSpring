@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-//GIT TEST2
-
 @EnableAutoConfiguration
 @RestController
 public class NoteController {
 
-    //find the bean then inject them into this class 
+    // find the bean then injecting them into this class
     @Autowired
     private NoteService noteService;
 

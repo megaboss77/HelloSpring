@@ -1,22 +1,25 @@
 package hello.controller;
+//package name need to be a reverse domain name likes com.google. follow by the project name all lowercase 
 
 import hello.model.Pet;
 import hello.repository.*;
+import io.swagger.annotations.ApiOperation;
 
 import java.net.InetAddress;
-//import java.net.InetAddress;
 import java.util.List;
 import javax.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @EnableAutoConfiguration
 @RestController
@@ -80,6 +83,39 @@ public class HelloController {
         String inf = InetAddress.getLoopbackAddress().getHostAddress() + " "
                 + InetAddress.getLoopbackAddress().getHostName();
         return InetAddress.getLoopbackAddress().getHostName() + "/swagger-ui.html";
+    }
+
+    // @ApiOperation(value = "Authenticate user", nickname = "authenticate", notes =
+    // "This API is used for authenticating user")
+    // @ApiResponses(value = { @ApiResponse(code = 200, message = "Success"),
+    // @ApiResponse(code = 400, message = "Bad Request", response =
+    // ErrorsList.class),
+    // @ApiResponse(code = 401, message = "Unauthorized", response =
+    // ErrorsList.class),
+    // @ApiResponse(code = 403, message = "Forbidden", response = ErrorsList.class),
+    // @ApiResponse(code = 404, message = "Not Found"),
+    // @ApiResponse(code = 500, message = "Internal server error occurred", response
+    // = ErrorsList.class),
+    // @ApiResponse(code = 503, message = "Service Unavailable", response =
+    // ErrorsList.class) })
+    @RequestMapping(value = "/echoStatus", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity echoHttpStatus(@RequestBody int statusCode) {
+        if (statusCode == 200) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else if (statusCode == 400) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        } else if (statusCode == 401) {
+            return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        } else if (statusCode == 403) {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        } else if (statusCode == 500) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        } else if (statusCode == 503) {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

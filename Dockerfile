@@ -14,4 +14,5 @@ ARG JAR_FILE=target/boss-spring-boot-0.1.0.jar
 ADD ${JAR_FILE} app.jar
 
 # Run the JAR file
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+#"-Djava.security.egd=file:/dev/./urandom"

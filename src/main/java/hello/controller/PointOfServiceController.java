@@ -4,8 +4,6 @@ import hello.model.pointofservice.*;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,10 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 @RestController
 public class PointOfServiceController {
-
-    // find the bean then inject them into this class
-    // @Autowired
-    // private NoteService noteService;
 
     @RequestMapping(value = "sales-and-service/point-of-service", method = RequestMethod.GET, produces = "application/json")
     public List<PointOfService> GetPointOfService(@RequestParam(required = false) String type,

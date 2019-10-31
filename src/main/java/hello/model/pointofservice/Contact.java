@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
 @Validated
 @javax.annotation.Generated(value = "hello.codegen.languages.SpringCodegen", date = "2019-10-25T02:52:53.609Z")
 
-public class Contact   {
+public class Contact {
   @JsonProperty("phoneNumber")
   private String phoneNumber = null;
 
@@ -29,11 +29,13 @@ public class Contact   {
   }
 
   /**
-   * Collection of information that identifies a phone number, as defined by telecom services.  It is recommended to use only numbers and limited punctuation +,-.(.)
+   * Collection of information that identifies a phone number, as defined by
+   * telecom services. It is recommended to use only numbers and limited
+   * punctuation +,-.(.)
+   * 
    * @return phoneNumber
-  **/
+   **/
   @ApiModelProperty(example = "+66-2-296-2000", value = "Collection of information that identifies a phone number, as defined by telecom services.  It is recommended to use only numbers and limited punctuation +,-.(.)")
-
 
   public String getPhoneNumber() {
     return phoneNumber;
@@ -49,11 +51,13 @@ public class Contact   {
   }
 
   /**
-   * Collection of information that identifies a fax number, as defined by telecom services.  It is recommended to use only numbers and limited punctuation +,-.(.)
+   * Collection of information that identifies a fax number, as defined by telecom
+   * services. It is recommended to use only numbers and limited punctuation
+   * +,-.(.)
+   * 
    * @return faxNumber
-  **/
+   **/
   @ApiModelProperty(example = "+66-2-296-2000", value = "Collection of information that identifies a fax number, as defined by telecom services.  It is recommended to use only numbers and limited punctuation +,-.(.)")
-
 
   public String getFaxNumber() {
     return faxNumber;
@@ -62,7 +66,6 @@ public class Contact   {
   public void setFaxNumber(String faxNumber) {
     this.faxNumber = faxNumber;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,8 +76,7 @@ public class Contact   {
       return false;
     }
     Contact contact = (Contact) o;
-    return Objects.equals(this.phoneNumber, contact.phoneNumber) &&
-        Objects.equals(this.faxNumber, contact.faxNumber);
+    return Objects.equals(this.phoneNumber, contact.phoneNumber) && Objects.equals(this.faxNumber, contact.faxNumber);
   }
 
   @Override
@@ -86,7 +88,7 @@ public class Contact   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Contact {\n");
-    
+
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    faxNumber: ").append(toIndentedString(faxNumber)).append("\n");
     sb.append("}");
@@ -104,4 +106,3 @@ public class Contact   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-
