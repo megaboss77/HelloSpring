@@ -14,26 +14,28 @@ import javax.validation.constraints.*;
  */
 @ApiModel(description = "TODO")
 @Validated
-@javax.annotation.Generated(value = "hello.codegen.languages.SpringCodegen", date = "2019-10-25T02:52:53.609Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-11-01T10:47:52.165Z")
 
-public class GeoLocation   {
+public class GeographicCoordinates {
   @JsonProperty("latitude")
   private String latitude = null;
 
   @JsonProperty("longitude")
   private String longitude = null;
 
-  public GeoLocation latitude(String latitude) {
+  public GeographicCoordinates latitude(String latitude) {
     this.latitude = latitude;
     return this;
   }
 
   /**
-   * Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator
+   * Latitude value of a location in decimal degree (DD) system (BIAN: N/A,
+   * ISO20022: GeographicCoordinates1/Latitude in degrees, minutes, seconds (DMS)
+   * system)
+   * 
    * @return latitude
-  **/
-  @ApiModelProperty(example = "13°40'43.9\"N", value = "Latitude measured in degrees, minutes and seconds, following by 'N' for the north and 'S' for the south of the equator")
-
+   **/
+  @ApiModelProperty(example = "100.5470233", value = "Latitude value of a location in decimal degree (DD) system (BIAN: N/A, ISO20022: GeographicCoordinates1/Latitude in degrees, minutes, seconds (DMS) system)")
 
   public String getLatitude() {
     return latitude;
@@ -43,17 +45,19 @@ public class GeoLocation   {
     this.latitude = latitude;
   }
 
-  public GeoLocation longitude(String longitude) {
+  public GeographicCoordinates longitude(String longitude) {
     this.longitude = longitude;
     return this;
   }
 
   /**
-   * Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.  The longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west
+   * Longitude value of a location in decimal degree (DD) system (BIAN: N/A,
+   * ISO20022: GeographicCoordinates1/Longitude in degrees, minutes, seconds (DMS)
+   * systen)
+   * 
    * @return longitude
-  **/
-  @ApiModelProperty(example = "100°32'50.4\"E", value = "Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.  The longitude is measured in degrees, minutes and seconds, following by 'E' for the east and 'W' for the west")
-
+   **/
+  @ApiModelProperty(example = "13.7429404", value = "Longitude value of a location in decimal degree (DD) system (BIAN: N/A, ISO20022: GeographicCoordinates1/Longitude in degrees, minutes, seconds (DMS) systen)")
 
   public String getLongitude() {
     return longitude;
@@ -63,7 +67,6 @@ public class GeoLocation   {
     this.longitude = longitude;
   }
 
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -72,9 +75,9 @@ public class GeoLocation   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GeoLocation geoLocation = (GeoLocation) o;
-    return Objects.equals(this.latitude, geoLocation.latitude) &&
-        Objects.equals(this.longitude, geoLocation.longitude);
+    GeographicCoordinates geographicCoordinates = (GeographicCoordinates) o;
+    return Objects.equals(this.latitude, geographicCoordinates.latitude)
+        && Objects.equals(this.longitude, geographicCoordinates.longitude);
   }
 
   @Override
@@ -85,8 +88,8 @@ public class GeoLocation   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GeoLocation {\n");
-    
+    sb.append("class GeographicCoordinates {\n");
+
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("}");
@@ -104,4 +107,3 @@ public class GeoLocation   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

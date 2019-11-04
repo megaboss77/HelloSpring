@@ -9,35 +9,28 @@ import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-
 /**
- * s TODO
+ * TODO
  */
 @ApiModel(description = "TODO")
 @Validated
-@javax.annotation.Generated(value = "hello.codegen.languages.SpringCodegen", date = "2019-10-25T02:52:53.609Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-11-01T10:47:52.165Z")
 
 public class Address {
-  @JsonProperty("houseNumber")
-  private String houseNumber = null;
+  @JsonProperty("branchName")
+  private String branchName = null;
 
-  @JsonProperty("unitNumber")
-  private String unitNumber = null;
+  @JsonProperty("branchNumber")
+  private String branchNumber = null;
 
-  @JsonProperty("floorNumber")
-  private String floorNumber = null;
+  @JsonProperty("atmNumber")
+  private String atmNumber = null;
 
-  @JsonProperty("buildingName")
-  private String buildingName = null;
+  @JsonProperty("atmLocationName")
+  private String atmLocationName = null;
 
-  @JsonProperty("villageName")
-  private String villageName = null;
-
-  @JsonProperty("villageNumber")
-  private String villageNumber = null;
-
-  @JsonProperty("alleyName")
-  private String alleyName = null;
+  @JsonProperty("buildingNumber")
+  private String buildingNumber = null;
 
   @JsonProperty("streetName")
   private String streetName = null;
@@ -51,150 +44,117 @@ public class Address {
   @JsonProperty("province")
   private String province = null;
 
-  @JsonProperty("countryCode")
-  private String countryCode = null;
-
   @JsonProperty("postalCode")
   private String postalCode = null;
 
-  public Address houseNumber(String houseNumber) {
-    this.houseNumber = houseNumber;
+  public Address branchName(String branchName) {
+    this.branchName = branchName;
     return this;
   }
 
   /**
-   * Identification of a location on street address
+   * Name by which an organisation is known and which is usually used to identify
+   * that organisation. It is derived from the association between
+   * PartyIdentificationInformation and PartyName (BIAN: N/A, ISO20022: N/A -
+   * derived from Organisation/Branch, OrganisationName, and
+   * OrganisationIdentification/DUNS)
    * 
-   * @return houseNumber
+   * @return branchName
    **/
-  @ApiModelProperty(example = "1222", value = "Identification of a location on street address")
+  @ApiModelProperty(example = "สาขาสำนักเพลินจิต  ", value = "Name by which an organisation is known and which is usually used to identify that organisation. It is derived from the association between PartyIdentificationInformation and PartyName (BIAN: N/A, ISO20022: N/A - derived from Organisation/Branch, OrganisationName, and OrganisationIdentification/DUNS)")
 
-  public String getHouseNumber() {
-    return houseNumber;
+  public String getBranchName() {
+    return branchName;
   }
 
-  public void setHouseNumber(String houseNumber) {
-    this.houseNumber = houseNumber;
+  public void setBranchName(String branchName) {
+    this.branchName = branchName;
   }
 
-  public Address unitNumber(String unitNumber) {
-    this.unitNumber = unitNumber;
+  public Address branchNumber(String branchNumber) {
+    this.branchNumber = branchNumber;
     return this;
   }
 
   /**
-   * Identification of a suite or apartment
+   * Unique number that provides unique and unambiguous identification of branch
+   * (BIAN: N/A, ISO20022: N/A - derived from Organisation/Branch,
+   * TaxIdentificationNumber, and OrganisationIdentification/DUNS )
    * 
-   * @return unitNumber
+   * @return branchNumber
    **/
-  @ApiModelProperty(example = " ", value = "Identification of a suite or apartment")
+  @ApiModelProperty(example = "001", value = "Unique number that provides unique and unambiguous identification of branch (BIAN: N/A, ISO20022: N/A - derived from Organisation/Branch, TaxIdentificationNumber, and OrganisationIdentification/DUNS )")
 
-  public String getUnitNumber() {
-    return unitNumber;
+  public String getBranchNumber() {
+    return branchNumber;
   }
 
-  public void setUnitNumber(String unitNumber) {
-    this.unitNumber = unitNumber;
+  public void setBranchNumber(String branchNumber) {
+    this.branchNumber = branchNumber;
   }
 
-  public Address floorNumber(String floorNumber) {
-    this.floorNumber = floorNumber;
+  public Address atmNumber(String atmNumber) {
+    this.atmNumber = atmNumber;
     return this;
   }
 
   /**
-   * Floor or storey within a building
+   * Unique number that provides unique and unambiguous identification of branch
+   * (BIAN: N/A, ISO20022: N/A - derived from Organisation/Branch,
+   * TaxIdentificationNumber, and OrganisationIdentification/DUNS )
    * 
-   * @return floorNumber
+   * @return atmNumber
    **/
-  @ApiModelProperty(example = " ", value = "Floor or storey within a building")
+  @ApiModelProperty(example = "", value = "Unique number that provides unique and unambiguous identification of branch (BIAN: N/A, ISO20022: N/A - derived from Organisation/Branch, TaxIdentificationNumber, and OrganisationIdentification/DUNS )")
 
-  public String getFloorNumber() {
-    return floorNumber;
+  public String getAtmNumber() {
+    return atmNumber;
   }
 
-  public void setFloorNumber(String floorNumber) {
-    this.floorNumber = floorNumber;
+  public void setAtmNumber(String atmNumber) {
+    this.atmNumber = atmNumber;
   }
 
-  public Address buildingName(String buildingName) {
-    this.buildingName = buildingName;
+  public Address atmLocationName(String atmLocationName) {
+    this.atmLocationName = atmLocationName;
     return this;
   }
 
   /**
-   * Name of a building
+   * Specifies a place of an ATM machine (BIAN: N/A, ISO20022: N/A - derived from
+   * PostalAddress/StreetName)
    * 
-   * @return buildingName
+   * @return atmLocationName
    **/
-  @ApiModelProperty(example = " ", value = "Name of a building")
+  @ApiModelProperty(example = "", value = "Specifies a place of an ATM machine (BIAN: N/A, ISO20022: N/A - derived from PostalAddress/StreetName)")
 
-  public String getBuildingName() {
-    return buildingName;
+  public String getAtmLocationName() {
+    return atmLocationName;
   }
 
-  public void setBuildingName(String buildingName) {
-    this.buildingName = buildingName;
+  public void setAtmLocationName(String atmLocationName) {
+    this.atmLocationName = atmLocationName;
   }
 
-  public Address villageName(String villageName) {
-    this.villageName = villageName;
+  public Address buildingNumber(String buildingNumber) {
+    this.buildingNumber = buildingNumber;
     return this;
   }
 
   /**
-   * Name of the village
+   * Number that identifies the position of a building on a street (BIAN:
+   * corporateAddress, ISO20022: PostalAddress6/BuildingNumber)
    * 
-   * @return villageName
+   * @return buildingNumber
    **/
-  @ApiModelProperty(example = " ", value = "Name of the village")
+  @ApiModelProperty(example = "550", value = "Number that identifies the position of a building on a street (BIAN: corporateAddress, ISO20022: PostalAddress6/BuildingNumber)")
 
-  public String getVillageName() {
-    return villageName;
+  public String getBuildingNumber() {
+    return buildingNumber;
   }
 
-  public void setVillageName(String villageName) {
-    this.villageName = villageName;
-  }
-
-  public Address villageNumber(String villageNumber) {
-    this.villageNumber = villageNumber;
-    return this;
-  }
-
-  /**
-   * Identification of a village
-   * 
-   * @return villageNumber
-   **/
-  @ApiModelProperty(example = " ", value = "Identification of a village")
-
-  public String getVillageNumber() {
-    return villageNumber;
-  }
-
-  public void setVillageNumber(String villageNumber) {
-    this.villageNumber = villageNumber;
-  }
-
-  public Address alleyName(String alleyName) {
-    this.alleyName = alleyName;
-    return this;
-  }
-
-  /**
-   * Name of an alley branch out from the street
-   * 
-   * @return alleyName
-   **/
-  @ApiModelProperty(example = " ", value = "Name of an alley branch out from the street")
-
-  public String getAlleyName() {
-    return alleyName;
-  }
-
-  public void setAlleyName(String alleyName) {
-    this.alleyName = alleyName;
+  public void setBuildingNumber(String buildingNumber) {
+    this.buildingNumber = buildingNumber;
   }
 
   public Address streetName(String streetName) {
@@ -203,11 +163,12 @@ public class Address {
   }
 
   /**
-   * Name of a street or thoroughfare
+   * Name of a street or thoroughfare (BIAN: corporateAddress, ISO20022:
+   * PostalAddress/StreetName)
    * 
    * @return streetName
    **/
-  @ApiModelProperty(example = "Rama III Rd", value = "Name of a street or thoroughfare")
+  @ApiModelProperty(example = "เพลินจิต", value = "Name of a street or thoroughfare (BIAN: corporateAddress, ISO20022: PostalAddress/StreetName)")
 
   public String getStreetName() {
     return streetName;
@@ -223,11 +184,12 @@ public class Address {
   }
 
   /**
-   * Identification of a sub-division of a district
+   * Identification of a sub-division of a district (BIAN: corporateAddress,
+   * ISO20022: PostalAddress/DistrictSubDivisionIdentification)
    * 
    * @return subDistrict
    **/
-  @ApiModelProperty(example = "Bang Phong Phang", value = "Identification of a sub-division of a district")
+  @ApiModelProperty(example = "ลุมพินี", value = "Identification of a sub-division of a district (BIAN: corporateAddress, ISO20022: PostalAddress/DistrictSubDivisionIdentification)")
 
   public String getSubDistrict() {
     return subDistrict;
@@ -243,11 +205,12 @@ public class Address {
   }
 
   /**
-   * Name of a district, ie, a part of a town or region
+   * Name of a district, ie, a part of a town or region (BIAN: corporateAddress,
+   * ISO20022: PostalAddress/DistrictName)
    * 
    * @return district
    **/
-  @ApiModelProperty(example = "Yan Nawa", value = "Name of a district, ie, a part of a town or region")
+  @ApiModelProperty(example = "ปทุมวัน", value = "Name of a district, ie, a part of a town or region (BIAN: corporateAddress, ISO20022: PostalAddress/DistrictName)")
 
   public String getDistrict() {
     return district;
@@ -264,10 +227,11 @@ public class Address {
 
   /**
    * A territory governed as an administrative or political unit of a country
+   * (BIAN: corporateAddress, ISO20022: PostalAddress/Province)
    * 
    * @return province
    **/
-  @ApiModelProperty(example = "Bangkok", value = "A territory governed as an administrative or political unit of a country")
+  @ApiModelProperty(example = "กรุงเทพมหานคร", value = "A territory governed as an administrative or political unit of a country (BIAN: corporateAddress, ISO20022: PostalAddress/Province)")
 
   public String getProvince() {
     return province;
@@ -277,26 +241,6 @@ public class Address {
     this.province = province;
   }
 
-  public Address countryCode(String countryCode) {
-    this.countryCode = countryCode;
-    return this;
-  }
-
-  /**
-   * Country of the address (according to ISO 3166, Alpha-2)
-   * 
-   * @return countryCode
-   **/
-  @ApiModelProperty(example = "TH", value = "Country of the address  (according to ISO 3166, Alpha-2)")
-
-  public String getCountryCode() {
-    return countryCode;
-  }
-
-  public void setCountryCode(String countryCode) {
-    this.countryCode = countryCode;
-  }
-
   public Address postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
@@ -304,11 +248,12 @@ public class Address {
 
   /**
    * Identifier consisting of a group of letters and/or numbers that is added to a
-   * postal address to assist the sorting of mail
+   * postal address to assist the sorting of mail (BIAN: corporateAddress,
+   * ISO20022: PostalAddress/PostCodeIdentification)
    * 
    * @return postalCode
    **/
-  @ApiModelProperty(example = "10120", value = "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail")
+  @ApiModelProperty(example = "10330", value = "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail (BIAN: corporateAddress, ISO20022: PostalAddress/PostCodeIdentification)")
 
   public String getPostalCode() {
     return postalCode;
@@ -327,21 +272,19 @@ public class Address {
       return false;
     }
     Address address = (Address) o;
-    return Objects.equals(this.houseNumber, address.houseNumber) && Objects.equals(this.unitNumber, address.unitNumber)
-        && Objects.equals(this.floorNumber, address.floorNumber)
-        && Objects.equals(this.buildingName, address.buildingName)
-        && Objects.equals(this.villageName, address.villageName)
-        && Objects.equals(this.villageNumber, address.villageNumber)
-        && Objects.equals(this.alleyName, address.alleyName) && Objects.equals(this.streetName, address.streetName)
-        && Objects.equals(this.subDistrict, address.subDistrict) && Objects.equals(this.district, address.district)
-        && Objects.equals(this.province, address.province) && Objects.equals(this.countryCode, address.countryCode)
+    return Objects.equals(this.branchName, address.branchName)
+        && Objects.equals(this.branchNumber, address.branchNumber) && Objects.equals(this.atmNumber, address.atmNumber)
+        && Objects.equals(this.atmLocationName, address.atmLocationName)
+        && Objects.equals(this.buildingNumber, address.buildingNumber)
+        && Objects.equals(this.streetName, address.streetName) && Objects.equals(this.subDistrict, address.subDistrict)
+        && Objects.equals(this.district, address.district) && Objects.equals(this.province, address.province)
         && Objects.equals(this.postalCode, address.postalCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(houseNumber, unitNumber, floorNumber, buildingName, villageName, villageNumber, alleyName,
-        streetName, subDistrict, district, province, countryCode, postalCode);
+    return Objects.hash(branchName, branchNumber, atmNumber, atmLocationName, buildingNumber, streetName, subDistrict,
+        district, province, postalCode);
   }
 
   @Override
@@ -349,18 +292,15 @@ public class Address {
     StringBuilder sb = new StringBuilder();
     sb.append("class Address {\n");
 
-    sb.append("    houseNumber: ").append(toIndentedString(houseNumber)).append("\n");
-    sb.append("    unitNumber: ").append(toIndentedString(unitNumber)).append("\n");
-    sb.append("    floorNumber: ").append(toIndentedString(floorNumber)).append("\n");
-    sb.append("    buildingName: ").append(toIndentedString(buildingName)).append("\n");
-    sb.append("    villageName: ").append(toIndentedString(villageName)).append("\n");
-    sb.append("    villageNumber: ").append(toIndentedString(villageNumber)).append("\n");
-    sb.append("    alleyName: ").append(toIndentedString(alleyName)).append("\n");
+    sb.append("    branchName: ").append(toIndentedString(branchName)).append("\n");
+    sb.append("    branchNumber: ").append(toIndentedString(branchNumber)).append("\n");
+    sb.append("    atmNumber: ").append(toIndentedString(atmNumber)).append("\n");
+    sb.append("    atmLocationName: ").append(toIndentedString(atmLocationName)).append("\n");
+    sb.append("    buildingNumber: ").append(toIndentedString(buildingNumber)).append("\n");
     sb.append("    streetName: ").append(toIndentedString(streetName)).append("\n");
     sb.append("    subDistrict: ").append(toIndentedString(subDistrict)).append("\n");
     sb.append("    district: ").append(toIndentedString(district)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
-    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("}");
     return sb.toString();

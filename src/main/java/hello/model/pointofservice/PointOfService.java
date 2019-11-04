@@ -3,20 +3,22 @@ package hello.model.pointofservice;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import hello.model.pointofservice.Address;
-import hello.model.pointofservice.Contact;
-import hello.model.pointofservice.GeoLocation;
+import hello.model.pointofservice.ContactPoint;
+import hello.model.pointofservice.GeographicCoordinates;
+import hello.model.pointofservice.OperatingHours;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
-/**
- * TODO
- */
 @ApiModel(description = "TODO")
 @Validated
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-11-01T10:47:52.165Z")
+
 public class PointOfService {
   @JsonProperty("type")
   private String type = null;
@@ -24,11 +26,15 @@ public class PointOfService {
   @JsonProperty("address")
   private Address address = null;
 
-  @JsonProperty("geoLocation")
-  private GeoLocation geoLocation = null;
+  @JsonProperty("geographicCoordinates")
+  private GeographicCoordinates geographicCoordinates = null;
 
-  @JsonProperty("contact")
-  private Contact contact = null;
+  @JsonProperty("contactInformation")
+  private ContactPoint contactInformation = null;
+
+  @JsonProperty("operatingHours")
+  @Valid
+  private List<OperatingHours> operatingHours = null;
 
   public PointOfService type(String type) {
     this.type = type;
@@ -36,11 +42,13 @@ public class PointOfService {
   }
 
   /**
-   * Type of point of service
+   * Type used to classify and organise different services (BIAN: N/A, ISO20022:
+   * Service/Type)
    * 
    * @return type
    **/
-  @ApiModelProperty(example = " ", value = "Type of point of service")
+  @ApiModelProperty(example = "BRANCH ATM", value = "Type used to classify and organise different services (BIAN: N/A, ISO20022: Service/Type)")
+
   public String getType() {
     return type;
   }
@@ -55,11 +63,12 @@ public class PointOfService {
   }
 
   /**
-   * Address information of point of service
+   * Information that locates and identifies a specific address (BIAN: N/A,
+   * ISO20022: Location/Address)
    * 
    * @return address
    **/
-  @ApiModelProperty(value = "Address information of point of service")
+  @ApiModelProperty(value = "Information that locates and identifies a specific address (BIAN: N/A, ISO20022: Location/Address)")
 
   @Valid
 
@@ -71,48 +80,81 @@ public class PointOfService {
     this.address = address;
   }
 
-  public PointOfService geoLocation(GeoLocation geoLocation) {
-    this.geoLocation = geoLocation;
+  public PointOfService geographicCoordinates(GeographicCoordinates geographicCoordinates) {
+    this.geographicCoordinates = geographicCoordinates;
     return this;
   }
 
   /**
-   * Geolocation information of point of service
+   * Location on the Earth specified by two numbers representing vertical and
+   * horizontal position (BIAN: N/A, ISO20022: GeographicCoordinates1)
    * 
-   * @return geoLocation
+   * @return geographicCoordinates
    **/
-  @ApiModelProperty(value = "Geolocation information of point of service")
+  @ApiModelProperty(value = "Location on the Earth specified by two numbers representing vertical and horizontal position (BIAN: N/A, ISO20022: GeographicCoordinates1)")
 
   @Valid
 
-  public GeoLocation getGeoLocation() {
-    return geoLocation;
+  public GeographicCoordinates getGeographicCoordinates() {
+    return geographicCoordinates;
   }
 
-  public void setGeoLocation(GeoLocation geoLocation) {
-    this.geoLocation = geoLocation;
+  public void setGeographicCoordinates(GeographicCoordinates geographicCoordinates) {
+    this.geographicCoordinates = geographicCoordinates;
   }
 
-  public PointOfService contact(Contact contact) {
-    this.contact = contact;
+  public PointOfService contactInformation(ContactPoint contactInformation) {
+    this.contactInformation = contactInformation;
     return this;
   }
 
   /**
-   * Contact information of point of service
+   * Number, physical or virtual address, used for communication (BIAN: N/A,
+   * ISO20022: ContactPoint)
    * 
-   * @return contact
+   * @return contactInformation
    **/
-  @ApiModelProperty(value = "Contact information of point of service")
+  @ApiModelProperty(value = "Number, physical or virtual address, used for communication (BIAN: N/A, ISO20022: ContactPoint)")
 
   @Valid
 
-  public Contact getContact() {
-    return contact;
+  public ContactPoint getContactInformation() {
+    return contactInformation;
   }
 
-  public void setContact(Contact contact) {
-    this.contact = contact;
+  public void setContactInformation(ContactPoint contactInformation) {
+    this.contactInformation = contactInformation;
+  }
+
+  public PointOfService operatingHours(List<OperatingHours> operatingHours) {
+    this.operatingHours = operatingHours;
+    return this;
+  }
+
+  public PointOfService addOperatingHoursItem(OperatingHours operatingHoursItem) {
+    if (this.operatingHours == null) {
+      this.operatingHours = new ArrayList<OperatingHours>();
+    }
+    this.operatingHours.add(operatingHoursItem);
+    return this;
+  }
+
+  /**
+   * Particular time span specified between a start time and an end time. The time
+   * period cannot exceed 24 hours (BIAN: N/A, ISO20022: TimePeriod)
+   * 
+   * @return operatingHours
+   **/
+  @ApiModelProperty(value = "Particular time span specified between a start time and an end time. The time period cannot exceed 24 hours (BIAN: N/A, ISO20022: TimePeriod)")
+
+  @Valid
+
+  public List<OperatingHours> getOperatingHours() {
+    return operatingHours;
+  }
+
+  public void setOperatingHours(List<OperatingHours> operatingHours) {
+    this.operatingHours = operatingHours;
   }
 
   @Override
@@ -125,13 +167,14 @@ public class PointOfService {
     }
     PointOfService pointOfService = (PointOfService) o;
     return Objects.equals(this.type, pointOfService.type) && Objects.equals(this.address, pointOfService.address)
-        && Objects.equals(this.geoLocation, pointOfService.geoLocation)
-        && Objects.equals(this.contact, pointOfService.contact);
+        && Objects.equals(this.geographicCoordinates, pointOfService.geographicCoordinates)
+        && Objects.equals(this.contactInformation, pointOfService.contactInformation)
+        && Objects.equals(this.operatingHours, pointOfService.operatingHours);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, address, geoLocation, contact);
+    return Objects.hash(type, address, geographicCoordinates, contactInformation, operatingHours);
   }
 
   @Override
@@ -141,8 +184,9 @@ public class PointOfService {
 
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    geoLocation: ").append(toIndentedString(geoLocation)).append("\n");
-    sb.append("    contact: ").append(toIndentedString(contact)).append("\n");
+    sb.append("    geographicCoordinates: ").append(toIndentedString(geographicCoordinates)).append("\n");
+    sb.append("    contactInformation: ").append(toIndentedString(contactInformation)).append("\n");
+    sb.append("    operatingHours: ").append(toIndentedString(operatingHours)).append("\n");
     sb.append("}");
     return sb.toString();
   }
