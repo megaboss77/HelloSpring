@@ -4,9 +4,12 @@ package hello.controller;
 import hello.model.Pet;
 import hello.repository.*;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 import java.net.InetAddress;
 import java.util.List;
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,8 +36,10 @@ public class HelloController {
 
     // get all pet
     @RequestMapping(value = "/pet", method = RequestMethod.GET, produces = "application/json")
-    public List<Pet> getPet() {
-        List<Pet> pets = repository.findAll();
+    public List<Pet> getPet(
+            @ApiParam(value = "Type of point of service") @Valid @RequestParam(value = "name", required = false) String name,
+            @ApiParam(value = "Type of point of service") @Valid @RequestParam(value = "id", required = false) String id) {
+        List<Pet> pets = repository.findByNameAndId(name, id);
         return pets;
     }
 

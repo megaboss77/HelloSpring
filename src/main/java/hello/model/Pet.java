@@ -7,14 +7,14 @@ public class Pet {
     @Id
     public String id;
     private String name;
-    private int age;
+    private long age;
 
     // HELLO
 
     public Pet() {
     }
 
-    public Pet(String id, String name, int age) {
+    public Pet(String id, String name, long age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -36,11 +36,11 @@ public class Pet {
         this.name = name;
     }
 
-    public int getAge() {
+    public long getAge() {
         return this.age;
     }
 
-    public void setAge(int age) {
+    public void setAge(long age) {
         this.age = age;
     }
 
@@ -54,7 +54,7 @@ public class Pet {
         return this;
     }
 
-    public Pet age(int age) {
+    public Pet age(long age) {
         this.age = age;
         return this;
     }
