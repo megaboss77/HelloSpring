@@ -38,7 +38,7 @@ public class HelloController {
     @RequestMapping(value = "/pet", method = RequestMethod.GET, produces = "application/json")
     public List<Pet> getPet(
             @ApiParam(value = "Type of point of service") @Valid @RequestParam(value = "name", required = false) String name,
-            @ApiParam(value = "Type of point of service") @Valid @RequestParam(value = "id", required = false) String id) {
+            @ApiParam(value = "Type of point of service") @Valid @RequestParam(value = "id", required = false) Long id) {
         List<Pet> pets = repository.findByNameAndId(name, id);
         return pets;
     }

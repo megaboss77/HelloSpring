@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 <!--package name : net.krungsri.apifactory.pointofservices-->
 <!--    repository name : artifactId+"-service"-->
-    <groupId>net.krungsri.apifactory</groupId>
-    <artifactId>point-of-services</artifactId>
-    <version>0.1.0</version>
+    <groupId>com.boss</groupId>
+    <artifactId>boss-service</artifactId>
+    <version>1.0.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
