@@ -1,6 +1,7 @@
 # spring.data.mongodb.uri=
 spring.data.mongodb.uri: mongodb+srv://boss123:lolicon77@cluster0-d37ej.mongodb.net/test?retryWrites=true&w=majority
-server.port: 7070
+server.port: 8080
+logging.path: logs
 
 # spring.profiles: integration
 # spring.data.mongodb.uri: mongodb+srv://boss123:lolicon77@cluster0-d37ej.mongodb.net/test?retryWrites=true&w=majority

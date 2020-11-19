@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: boss-service
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  path: logs

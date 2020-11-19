@@ -8,7 +8,7 @@ VOLUME /tmp
 EXPOSE 8080
 
 # Set application's JAR file
-ARG JAR_FILE=target/boss-spring-boot-0.1.0.jar
+ARG JAR_FILE=target/boss-service-1.0.0.jar
 
 # Add the application's JAR file to the container
 ADD ${JAR_FILE} app.jar
