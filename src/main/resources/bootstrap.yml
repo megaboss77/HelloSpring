@@ -6,4 +6,4 @@ spring:
       enabled: ALWAYS
 
 logging:
-  path: logs
+  path: log

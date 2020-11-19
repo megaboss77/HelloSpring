@@ -1,13 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration>
 <configuration>
-  <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-    <destination>localhost:4560</destination>
-    <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder" />
+  # Console appender
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      # Pattern of log message for console appender
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} | %M | - %msg%n</Pattern>
+    </layout>
   </appender>
-  <include resource="org/springframework/boot/logging/logback/base.xml"/>
-  <root level="INFO">
-    <!--<appender-ref ref="LOGSTASH" />-->
-    <appender-ref ref="CONSOLE" />
+
+  # File appender
+  <appender name="roll-by-time"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>log/logback-demo-log.log</file>
+    <rollingPolicy
+            class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>log/backup/logback-demo-log-%d{yyyyMMddHHmm}.log.zip
+      </fileNamePattern>
+      <maxHistory>5</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36} | %M | - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="TRACE">
+    <appender-ref ref="stdout"/>
+    <appender-ref ref="roll-by-time"/>
   </root>
 </configuration>

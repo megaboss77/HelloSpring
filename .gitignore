@@ -24,6 +24,8 @@ node_modules
 *~
 LOG_FILE_IS_UNDEFINED
 *.log
+*.log
+log
 
 
 
@@ -45,8 +47,6 @@ ehthumbs.db
 Thumbs.db
 
 node
-
-deployment
 
 id_rsa
 
