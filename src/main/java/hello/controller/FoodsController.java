@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 import java.util.UUID;
 
 @EnableAutoConfiguration
@@ -33,5 +35,18 @@ public class FoodsController {
     @RequestMapping(value = "/food", method = RequestMethod.POST, produces = "application/json")
     public void PostNoteController(@RequestBody Data data) {
         foodsRepository.save(data);
+    }
+
+    @RequestMapping(value = "/randomFood", method = RequestMethod.GET, produces = "application/json")
+    public String getFood() {
+        Optional<Data> resList = foodsRepository.findById("res");
+        if (resList.isPresent()) {
+            Data resLists = resList.get();
+            List<String> resListss = resLists.getFood();
+            Random rand = new Random();
+            return resListss.get(rand.nextInt(resListss.size()));
+        } else {
+            return null;
+        }
     }
 }
