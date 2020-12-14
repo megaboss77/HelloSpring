@@ -7,10 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +42,30 @@ public class FoodsController {
             List<String> resListss = resLists.getFood();
             Random rand = new Random();
             return resListss.get(rand.nextInt(resListss.size()));
+        } else {
+            return null;
+        }
+    }
+    @RequestMapping(value = "/restaurants", method = RequestMethod.GET, produces = "application/json")
+    public List<String> getAllFood() {
+        Optional<Data> resList = foodsRepository.findById("res");
+        if (resList.isPresent()) {
+            Data resLists = resList.get();
+            List<String> resListss = resLists.getFood();
+            return resListss;
+        } else {
+            return null;
+        }
+    }
+    @RequestMapping(value = "/restaurants/{name}", method = RequestMethod.GET, produces = "application/json")
+    public List<String> addFood(@PathVariable("name") String name) {
+        Optional<Data> resList = foodsRepository.findById("res");
+        if (resList.isPresent()) {
+            Data resLists = resList.get();
+            List<String> resListss = resLists.getFood();
+            resListss.add(name);
+            foodsRepository.save(resLists);
+            return resListss;
         } else {
             return null;
         }
