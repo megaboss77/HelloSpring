@@ -70,4 +70,17 @@ public class FoodsController {
             return null;
         }
     }
+    @RequestMapping(value = "/restaurants/remove/{name}", method = RequestMethod.GET, produces = "application/json")
+    public List<String> deleteFood(@PathVariable("name") String name) {
+        Optional<Data> resList = foodsRepository.findById("res");
+        if (resList.isPresent()) {
+            Data resLists = resList.get();
+            List<String> resListss = resLists.getFood();
+            resListss.remove(name);
+            foodsRepository.save(resLists);
+            return resListss;
+        } else {
+            return null;
+        }
+    }
 }
