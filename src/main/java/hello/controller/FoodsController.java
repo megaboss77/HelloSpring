@@ -34,7 +34,7 @@ public class FoodsController {
         foodsRepository.save(data);
     }
 
-    @RequestMapping(value = "/randomFood", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/restaurants/random", method = RequestMethod.GET, produces = "application/json")
     public String getFood() {
         Optional<Data> resList = foodsRepository.findById("res");
         if (resList.isPresent()) {
